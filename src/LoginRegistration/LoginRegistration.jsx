@@ -8,7 +8,7 @@ function LoginRegistration() {
     <>
       <Header />
       <Routes>
-        <Route path="/Login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/Registration" element={<Registration />} />
       </Routes>
     </>
