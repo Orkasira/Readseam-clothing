@@ -1,1 +1,77 @@
-/*# sourceMappingURL=Registration.css.map */
+.registration-container {
+  height: 89vh;
+  overflow: hidden;
+  display: flex;
+}
+.registration-container .photo-container {
+  width: 775px;
+  overflow: hidden;
+}
+.registration-container .photo-container .photo {
+  width: 1550px;
+  height: 900px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
+}
+.registration-container .form-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+  flex-direction: column;
+  gap: 48px;
+}
+.registration-container .form-container .registration-title {
+  color: #10151f;
+  font-size: 42px;
+  font-weight: 600;
+}
+.registration-container .form-container .form-inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 590px;
+}
+.registration-container .form-container .form-inputs-container .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.registration-container .form-container .form-inputs-container .input-container input {
+  width: 560px;
+  padding: 10.5px 12px;
+  border: solid 1px #e1dfe1;
+  border-radius: 8px;
+}
+.registration-container .form-container .form-inputs-container .input-container .eye {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 30%;
+  left: 94%;
+  cursor: pointer;
+}
+.registration-container .form-container .registration-btn {
+  padding: 10px 274px;
+  background-color: #ff4000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 46px;
+}
+.registration-container .form-container .register-link-container {
+  color: #3e424a;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 24px;
+}
+.registration-container .form-container .register-link-container .register-link-content {
+  color: #ff4000;
+  font-weight: 500;
+  text-decoration: none;
+}/*# sourceMappingURL=Registration.css.map */
