@@ -69,6 +69,7 @@ function Registration() {
 
           <div className="form-inputs-container">
             <div className="input-container">
+              <input type="file" />
               <input
                 type="text"
                 name="username"
