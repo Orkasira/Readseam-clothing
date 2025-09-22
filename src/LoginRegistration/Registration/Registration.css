@@ -49,9 +49,23 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 94%;
+  transform: translateY(-50%);
   cursor: pointer;
+}
+.registration-container .form-container .form-inputs-container .input-container .validation-errors {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+.registration-container .form-container .form-inputs-container .input-container .pass-validation-errors {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  margin-top: 0px;
 }
 .registration-container .form-container .registration-btn {
   padding: 10px 274px;
