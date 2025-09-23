@@ -1,13 +1,12 @@
-import './App.css'
-import LoginRegistration from './LoginRegistration/LoginRegistration.jsx';
+import "./App.css";
+import LoginRegistration from "./LoginRegistration/LoginRegistration.jsx";
 
 function App() {
-
   return (
     <>
       <LoginRegistration />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
