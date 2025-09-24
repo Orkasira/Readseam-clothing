@@ -17,7 +17,7 @@ function Header() {
               <h2>Log in</h2>
             </div>
         </Link>
-      </header> wd sa
+      </header>
     </>
   );
 }
