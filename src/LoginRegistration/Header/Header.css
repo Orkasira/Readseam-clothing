@@ -3,13 +3,19 @@ header {
   display: flex;
   justify-content: space-between;
 }
-header .logo {
+
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-header .login {
+
+.login-link {
+  text-decoration: none;
+  color: #10151F;
+}
+.login-link .login {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -9,12 +9,18 @@ header {
     margin: 28px 100px;
     display: flex;
     justify-content: space-between;
+    }
 
     .logo {
         @include flex;
+
     }
 
-    .login {
+    .login-link {
+        text-decoration: none;
+        color: #10151F;
+        .login {
         @include flex;
     }
+    
 }

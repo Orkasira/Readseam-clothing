@@ -1,6 +1,7 @@
 import "./Header.css";
-import logo from "../../assets/vector.png";
-import user from "../../assets/union.png";
+import logo from "../../assets/Vector.png";
+import user from "../../assets/Union.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -10,11 +11,13 @@ function Header() {
           <img src={logo} alt="logo" />
           <h1>RedSeam Clothing</h1>
         </div>
-        <div className="login">
-          <img src={user} alt="user logo" />
-          <h2>Log in</h2>
-        </div>
-      </header>
+        <Link to="/" className="login-link">
+            <div className="login">
+              <img src={user} alt="user logo" />
+              <h2>Log in</h2>
+            </div>
+        </Link>
+      </header> wd sa
     </>
   );
 }
