@@ -53,6 +53,19 @@
   left: 79%;
   cursor: pointer;
 }
+.login-container .form-container .form-inputs-container .input-container .validation-errors {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+.login-container .form-container .form-inputs-container .input-container .pass-validation-errors {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  margin-top: -45px;
+}
 .login-container .form-container .login-btn {
   padding: 10px 274px;
   background-color: #ff4000;

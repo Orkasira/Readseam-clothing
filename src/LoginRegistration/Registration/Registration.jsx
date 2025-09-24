@@ -29,9 +29,9 @@ function Registration() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let valid = true;
 
     // validations
+    let valid = true;
 
     if (form.username.trim().length < 3) {
       setUsernameError("Username must be at least 3 characters");
@@ -136,7 +136,7 @@ function Registration() {
                 <div className="validation-errors">{usernameError}</div>
               )}
               <input
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Email *"
                 onChange={handleChange}

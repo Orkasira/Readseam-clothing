@@ -1,7 +1,11 @@
-import "ProductPage.css";
+import "./ProductPage.css";
 
 function ProductPage() {
-  return <></>;
+  return (
+    <>
+      <h1>Hello World!</h1>
+    </>
+  );
 }
 
 export default ProductPage;

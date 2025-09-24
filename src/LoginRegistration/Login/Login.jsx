@@ -1,17 +1,22 @@
+import React from "react";
 import "./Login.css";
 import photo from "../../assets/62bc5492a876268b6b9fc395f006a9259cafde47.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import eyeview from "../../assets/eyeview.png";
 import eyehide from "../../assets/eyehide.png";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [show, setShow] = useState(false);
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,11 +25,30 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // validations
+
+    let valid = true;
+
+    if (!form.email.includes("@")) {
+      setEmailError("Please enter a valid email address");
+      valid = false;
+    } else {
+      setEmailError("");
+    }
+
+    if (form.password.length < 3) {
+      setPasswordError("Password must be at least 3 characters");
+      valid = false;
+    } else {
+      setPasswordError("");
+    }
+
+    if (!valid) return;
+
     // request to the API
 
     try {
       const formData = new FormData();
-      // Only send username/email and password for login
       formData.append("username", form.username);
       formData.append("email", form.email);
       formData.append("password", form.password);
@@ -38,6 +62,12 @@ function Login() {
           body: formData,
         }
       );
+
+      if (res.status === 200) {
+        navigate("/ProductPage");
+      } else {
+        alert("Login failed. Please check your Email or password.");
+      }
 
       const data = await res.json();
       console.log(data);
@@ -64,16 +94,21 @@ function Login() {
           <div className="form-inputs-container">
             <div className="input-container">
               <input
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Email or username *"
                 onChange={handleChange}
+                value={form.email}
               />
+              {emailError && (
+                <div className="validation-errors">{emailError}</div>
+              )}
               <input
                 type={show ? "text" : "password"}
                 name="password"
                 placeholder="Password *"
                 onChange={handleChange}
+                value={form.password}
               />
               <span onClick={togglePassword}>
                 {show ? (
@@ -82,6 +117,9 @@ function Login() {
                   <img src={eyehide} alt="eye" className="eye" />
                 )}
               </span>
+              {passwordError && (
+                <div className="pass-validation-errors">{passwordError}</div>
+              )}
             </div>
 
             <button className="login-btn">Log in</button>
