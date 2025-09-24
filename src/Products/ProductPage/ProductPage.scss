@@ -1,0 +1,34 @@
+@mixin text {
+  color: #10151f;
+  font-weight: 500;
+}
+
+.product-page-container {
+  margin-left: 100px;
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: start;
+    .product-card {
+      width: 412px;
+      height: 614px;
+      padding-bottom: 20px;
+      .product-image {
+        border: solid 1px #e1dfe1;
+        width: 412px;
+        height: 549px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .product-name {
+        font-size: 18px;
+        @include text;
+      }
+      .product-price {
+        font-size: 16px;
+        @include text;
+      }
+    }
+  }
+}

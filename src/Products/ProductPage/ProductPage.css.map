@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"ProductPage.css"}
+{"version":3,"sources":["ProductPage.scss","ProductPage.css"],"names":[],"mappings":"AAKA;EACE,kBAAA;ACJF;ADKE;EACE,aAAA;EACA,eAAA;EACA,SAAA;EACA,sBAAA;ACHJ;ADII;EACE,YAAA;EACA,aAAA;EACA,oBAAA;ACFN;ADGM;EACE,yBAAA;EACA,YAAA;EACA,aAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;ACDR;ADGM;EACE,eAAA;EAvBN,cAAA;EACA,gBAAA;ACuBF;ADEM;EACE,eAAA;EA3BN,cAAA;EACA,gBAAA;AC4BF","file":"ProductPage.css"}
