@@ -4,19 +4,73 @@
 }
 
 .product-page-container {
-  margin-left: 100px;
+  margin: 0 100px;
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 72px;
+    margin-bottom: 32px;
+    .title {
+      font-weight: 600;
+      font-size: 42px;
+      color: #10151f;
+    }
+    .filter-options {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      .showing-pages {
+        color: #3e424a;
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .hor-line {
+        width: 1px;
+        height: 14px;
+        background-color: #e1dfe1;
+      }
+      .price-filter {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        p {
+          font-size: 16px;
+          color: #10151f;
+          font-weight: 400;
+        }
+      }
+      .sort-by {
+        width: 80px;
+        height: 40px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #10151f;
+        font-weight: 400;
+        cursor: pointer;
+        .sort-by-option {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
   .product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 21px;
     justify-content: start;
     .product-card {
-      width: 412px;
+      width: 410.5px;
       height: 614px;
       padding-bottom: 20px;
       .product-image {
         border: solid 1px #e1dfe1;
-        width: 412px;
+        width: 408.5px;
         height: 549px;
         object-fit: cover;
         border-radius: 8px;

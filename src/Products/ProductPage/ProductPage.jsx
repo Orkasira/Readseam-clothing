@@ -1,5 +1,6 @@
 import "./ProductPage.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import PriceFilter from "../../assets/adjustments-horizontal.png";
 
 function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -30,6 +31,23 @@ function ProductPage() {
   return (
     <>
       <div className="product-page-container">
+        <div className="filter">
+          <h1 className="title">Products</h1>
+          <div className="filter-options">
+            <p className="showing-pages">Showing 1–10 of 100 results</p>
+            <span className="hor-line"></span>
+            <div className="price-filter">
+              <img src={PriceFilter} alt="Price filter logo" />
+              <p>Filter</p>
+            </div>
+            <select name="" id="" className="sort-by">
+              <option>Sort by</option>
+              <option>New products first</option>
+              <option>Price, low to high</option>
+              <option>Price, high to low</option>
+            </select>
+          </div>
+        </div>
         <div className="product-list">
           {products.map((product) => (
             <div key={product.id} className="product-card">
