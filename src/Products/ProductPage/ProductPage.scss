@@ -29,32 +29,45 @@
         height: 14px;
         background-color: #e1dfe1;
       }
-      .price-filter {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        cursor: pointer;
-        img {
-          width: 24px;
-          height: 24px;
-        }
-        p {
-          font-size: 16px;
+      .sort-dropdown {
+        position: relative;
+        .sort-btn {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          font-size: 14px;
           color: #10151f;
           font-weight: 400;
         }
-      }
-      .sort-by {
-        width: 80px;
-        height: 40px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        color: #10151f;
-        font-weight: 400;
-        cursor: pointer;
-        .sort-by-option {
-          border-radius: 10px;
+        .sort-menu {
+          position: absolute;
+          top: 120%;
+          right: 0;
+          background: #fff;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          width: 200px;
+          z-index: 10;
+          padding: 8px 0;
+          .sort-para {
+            margin: 0;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 14px;
+          }
+          .sort-para:hover {
+            background: #f2f2f2;
+          }
+          .sort-title {
+            font-weight: 600;
+            padding: 8px 14px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 6px;
+          }
         }
       }
     }
