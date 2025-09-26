@@ -27,6 +27,65 @@
   height: 14px;
   background-color: #e1dfe1;
 }
+.product-page-container .filter .filter-options .price-filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup {
+  width: 392px;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e1dfe1;
+  padding: 24px;
+  z-index: 20;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup .price-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #10151f;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup .price-inputs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup .price-inputs input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #e1dfe1;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup .price-inputs input:focus {
+  border: 1.5px solid #10151f;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup .apply-btn {
+  width: 124px;
+  background: #ff3c00;
+  color: #fff;
+  border: none;
+  padding: 10px 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background 0.2s;
+  margin-left: 285px;
+}
+.product-page-container .filter .filter-options .price-filter .price-filter-popup .apply-btn:hover {
+  background: #d63200;
+}
 .product-page-container .filter .filter-options .sort-dropdown {
   position: relative;
 }
@@ -48,7 +107,6 @@
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 200px;
   z-index: 10;
   padding: 8px 0;
@@ -67,6 +125,30 @@
   padding: 8px 14px;
   border-bottom: 1px solid #eee;
   margin-bottom: 6px;
+}
+.product-page-container .active-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.product-page-container .active-filters .filter-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px 8px 16px;
+  border: 1px solid #e1dfe1;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #10151f;
+}
+.product-page-container .active-filters .filter-tag .close-btn {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  color: #3e424a;
 }
 .product-page-container .product-list {
   display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import arrow from "../../assets/arrow.png";
 import PriceFilter from "../../assets/adjustments-horizontal.png";
 import "./ProductPage.css";
@@ -7,6 +7,13 @@ function ProductPage() {
   const [products, setProducts] = useState([]);
   const [originalProducts, setOriginalProducts] = useState([]);
   const [open, setOpen] = useState(false);
+  const [priceOpen, setPriceOpen] = useState(false);
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [activeFilter, setActiveFilter] = useState(null);
+
+  const sortRef = useRef(null);
+  const priceRef = useRef(null);
 
   useEffect(() => {
     const GetProduct = async () => {
@@ -30,6 +37,8 @@ function ProductPage() {
     GetProduct();
   }, []);
 
+  // Sorting function
+
   const handleSort = (criteria) => {
     let sortedProducts = [...originalProducts];
     if (criteria === "newest") {
@@ -44,6 +53,39 @@ function ProductPage() {
     setProducts(sortedProducts);
   };
 
+  // Price filtering function
+
+  const handlePriceFilter = () => {
+    const min = from ? Number(from) : 0;
+    const max = to ? Number(to) : Infinity;
+
+    const filtered = originalProducts.filter((product) => {
+      const price = Number(product.price);
+      return price >= min && price <= max;
+    });
+
+    setProducts(filtered);
+    setPriceOpen(false);
+
+    // აქ ჩაიწერება აქტიური ფილტრი, რომ ტეგი გამოჩნდეს
+    setActiveFilter({ from: min, to: max === Infinity ? null : max });
+  };
+
+  // Close dropdowns when clicking outside
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (sortRef.current && !sortRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+      if (priceRef.current && !priceRef.current.contains(e.target)) {
+        setPriceOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="product-page-container">
       <div className="filter">
@@ -51,11 +93,37 @@ function ProductPage() {
         <div className="filter-options">
           <p className="showing-pages">Showing 1–10 of 100 results</p>
           <span className="hor-line"></span>
-          <div className="price-filter">
-            <img src={PriceFilter} alt="Price filter logo" />
-            <p>Filter</p>
+          <div className="price-filter" ref={priceRef}>
+            <img
+              src={PriceFilter}
+              alt="Price filter logo"
+              onClick={() => setPriceOpen((p) => !p)}
+            />
+            <p onClick={() => setPriceOpen((p) => !p)}>Filter</p>
+            {priceOpen && (
+              <div className="price-filter-popup">
+                <p className="price-title">Select price</p>
+                <div className="price-inputs">
+                  <input
+                    type="number"
+                    placeholder="From *"
+                    value={from}
+                    onChange={(e) => setFrom(e.target.value)}
+                  />
+                  <input
+                    type="number"
+                    placeholder="To *"
+                    value={to}
+                    onChange={(e) => setTo(e.target.value)}
+                  />
+                </div>
+                <button className="apply-btn" onClick={handlePriceFilter}>
+                  Apply
+                </button>
+              </div>
+            )}
           </div>
-          <div className="sort-dropdown">
+          <div className="sort-dropdown" ref={sortRef}>
             <button className="sort-btn" onClick={() => setOpen((p) => !p)}>
               Sort by
               <img src={arrow} alt="arrow" />
@@ -83,6 +151,24 @@ function ProductPage() {
           </div>
         </div>
       </div>
+      {activeFilter && (
+        <div className="active-filters">
+          <div className="filter-tag">
+            Price: {activeFilter.from}–{activeFilter.to || "∞"}
+            <span
+              className="close-btn"
+              onClick={() => {
+                setActiveFilter(null);
+                setFrom("");
+                setTo("");
+                setProducts(originalProducts);
+              }}
+            >
+              ×
+            </span>
+          </div>
+        </div>
+      )}
       <div className="product-list">
         {products.map((product) => (
           <div key={product.id} className="product-card">
