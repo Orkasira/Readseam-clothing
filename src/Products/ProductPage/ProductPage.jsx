@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import arrow from "../../assets/arrow.png";
 import PriceFilter from "../../assets/adjustments-horizontal.png";
 import "./ProductPage.css";
+import left from "../../assets/left.png";
+import right from "../../assets/right.png";
 
 function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -12,33 +14,41 @@ function ProductPage() {
   const [to, setTo] = useState("");
   const [activeFilter, setActiveFilter] = useState(null);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 10;
+
   const sortRef = useRef(null);
   const priceRef = useRef(null);
 
   useEffect(() => {
-    const GetProduct = async () => {
+    const GetAllProducts = async () => {
       try {
-        const res = await fetch(
-          "https://api.redseam.redberryinternship.ge/api/products",
-          {
-            method: "GET",
-            headers: {
-              accept: "application/json",
-            },
-          }
-        );
-        const result = await res.json();
-        setProducts(result.data);
-        setOriginalProducts(result.data);
+        let allProducts = [];
+        let page = 1;
+        let totalPages = 1;
+
+        do {
+          const res = await fetch(
+            `https://api.redseam.redberryinternship.ge/api/products?page=${page}`,
+            { headers: { accept: "application/json" } }
+          );
+          const result = await res.json();
+
+          allProducts = [...allProducts, ...result.data];
+          totalPages = result.meta.last_page; // API-ს structure-ზეა დამოკიდებული
+          page++;
+        } while (page <= totalPages);
+
+        setProducts(allProducts);
+        setOriginalProducts(allProducts);
       } catch (err) {
         console.error("Error:", err);
       }
     };
-    GetProduct();
+    GetAllProducts();
   }, []);
 
-  // Sorting function
-
+  // Sorting
   const handleSort = (criteria) => {
     let sortedProducts = [...originalProducts];
     if (criteria === "newest") {
@@ -51,10 +61,10 @@ function ProductPage() {
       sortedProducts.sort((a, b) => b.price - a.price);
     }
     setProducts(sortedProducts);
+    setCurrentPage(1);
   };
 
-  // Price filtering function
-
+  // Price filter
   const handlePriceFilter = () => {
     const min = from ? Number(from) : 0;
     const max = to ? Number(to) : Infinity;
@@ -66,13 +76,11 @@ function ProductPage() {
 
     setProducts(filtered);
     setPriceOpen(false);
-
-    // აქ ჩაიწერება აქტიური ფილტრი, რომ ტეგი გამოჩნდეს
     setActiveFilter({ from: min, to: max === Infinity ? null : max });
+    setCurrentPage(1);
   };
 
-  // Close dropdowns when clicking outside
-
+  // Close dropdowns
   useEffect(() => {
     function handleClickOutside(e) {
       if (sortRef.current && !sortRef.current.contains(e.target)) {
@@ -86,12 +94,45 @@ function ProductPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Pagination slice
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
+  const currentProducts = products.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(products.length / productsPerPage);
+  const pages = (() => {
+    if (totalPages <= 1) return [1];
+
+    const res = [];
+    const last = totalPages;
+
+    res.push(1);
+    if (last >= 2) res.push(2);
+    if (currentPage > 4) res.push("...");
+    if (currentPage - 1 > 2 && currentPage - 1 < last - 1) {
+      res.push(currentPage - 1);
+    }
+    if (currentPage > 2 && currentPage < last - 1) {
+      res.push(currentPage);
+    }
+    if (currentPage + 1 < last && currentPage + 1 > 2) {
+      res.push(currentPage + 1);
+    }
+    if (currentPage < last - 3) res.push("...");
+    if (last - 1 > 2) res.push(last - 1);
+    if (last > 2) res.push(last);
+    return res.filter((item, idx) => item !== res[idx - 1]);
+  })();
+
   return (
     <div className="product-page-container">
       <div className="filter">
         <h1 className="title">Products</h1>
         <div className="filter-options">
-          <p className="showing-pages">Showing 1–10 of 100 results</p>
+          <p className="showing-pages">
+            Showing {indexOfFirst + 1}–{Math.min(indexOfLast, products.length)}{" "}
+            of {products.length} results
+          </p>
           <span className="hor-line"></span>
           <div className="price-filter" ref={priceRef}>
             <img
@@ -151,6 +192,7 @@ function ProductPage() {
           </div>
         </div>
       </div>
+
       {activeFilter && (
         <div className="active-filters">
           <div className="filter-tag">
@@ -162,6 +204,7 @@ function ProductPage() {
                 setFrom("");
                 setTo("");
                 setProducts(originalProducts);
+                setCurrentPage(1);
               }}
             >
               ×
@@ -169,8 +212,9 @@ function ProductPage() {
           </div>
         </div>
       )}
+
       <div className="product-list">
-        {products.map((product) => (
+        {currentProducts.map((product) => (
           <div key={product.id} className="product-card">
             <img
               src={product.cover_image}
@@ -181,6 +225,42 @@ function ProductPage() {
             <p className="product-price">${product.price}</p>
           </div>
         ))}
+      </div>
+
+      <div className="pagination-container">
+        <img
+          src={left}
+          alt="left arrow"
+          className="page-arrow"
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+        />
+
+        {pages.map((p, idx) =>
+          p === "..." ? (
+            <span key={`dots-${idx}`} className="dots">
+              ...
+            </span>
+          ) : (
+            <button
+              key={`page-${p}`}
+              className={`page-btn ${p === currentPage ? "active" : ""}`}
+              onClick={() => setCurrentPage(p)}
+            >
+              {p}
+            </button>
+          )
+        )}
+
+        <img
+          src={right}
+          alt="right arrow"
+          className="page-arrow"
+          disabled={currentPage === totalPages || totalPages === 0}
+          onClick={() =>
+            setCurrentPage((p) => Math.min(totalPages || 1, p + 1))
+          }
+        />
       </div>
     </div>
   );
