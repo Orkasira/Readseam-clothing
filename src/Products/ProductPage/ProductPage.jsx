@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
 import PriceFilter from "../../assets/adjustments-horizontal.png";
 import "./ProductPage.css";
@@ -19,6 +20,8 @@ function ProductPage() {
 
   const sortRef = useRef(null);
   const priceRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const GetAllProducts = async () => {
@@ -215,7 +218,11 @@ function ProductPage() {
 
       <div className="product-list">
         {currentProducts.map((product) => (
-          <div key={product.id} className="product-card">
+          <div
+            key={product.id}
+            className="product-card"
+            onClick={() => navigate(`/ProductPage/${product.id}`)}
+          >
             <img
               src={product.cover_image}
               alt={product.name}

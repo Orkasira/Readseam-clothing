@@ -9,11 +9,13 @@ header {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
+  color: #10151f;
 }
 
 .login-link {
   text-decoration: none;
-  color: #10151F;
+  color: #10151f;
 }
 .login-link .login {
   display: flex;

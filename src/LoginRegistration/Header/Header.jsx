@@ -7,15 +7,15 @@ function Header() {
   return (
     <>
       <header>
-        <div className="logo">
+        <Link to="/ProductPage" className="logo">
           <img src={logo} alt="logo" />
           <h1>RedSeam Clothing</h1>
-        </div>
+        </Link>
         <Link to="/" className="login-link">
-            <div className="login">
-              <img src={user} alt="user logo" />
-              <h2>Log in</h2>
-            </div>
+          <div className="login">
+            <img src={user} alt="user logo" />
+            <h2>Log in</h2>
+          </div>
         </Link>
       </header>
     </>

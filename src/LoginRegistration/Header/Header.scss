@@ -1,26 +1,26 @@
 @mixin flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 header {
-    margin: 28px 100px;
-    display: flex;
-    justify-content: space-between;
-    }
+  margin: 28px 100px;
+  display: flex;
+  justify-content: space-between;
+}
 
-    .logo {
-        @include flex;
+.logo {
+  @include flex;
+  text-decoration: none;
+  color: #10151f;
+}
 
-    }
-
-    .login-link {
-        text-decoration: none;
-        color: #10151F;
-        .login {
-        @include flex;
-    }
-    
+.login-link {
+  text-decoration: none;
+  color: #10151f;
+  .login {
+    @include flex;
+  }
 }
