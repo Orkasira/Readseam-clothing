@@ -6,14 +6,13 @@ import cart from "../../assets/cart.png";
 import errorcart from "../../assets/errorcart.png";
 import { Link } from "react-router-dom";
 
-function SingleProductPage() {
+function SingleProductPage({ cartItems, setCartItems }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [fade, setFade] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
   const [showSidebar, setShowSidebar] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
@@ -65,12 +64,14 @@ function SingleProductPage() {
 
   const addToCart = () => {
     if (!product) return;
+
     const existing = cartItems.find(
       (item) =>
         item.id === product.id &&
         item.size === selectedSize &&
         item.color === selectedColor
     );
+
     if (existing) {
       setCartItems(
         cartItems.map((item) =>
@@ -93,6 +94,7 @@ function SingleProductPage() {
         },
       ]);
     }
+
     setShowSidebar(true);
   };
 
@@ -120,6 +122,12 @@ function SingleProductPage() {
     0
   );
   const total = subtotal + deliveryPrice;
+
+  // save cart in localStorage
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   if (!product) {
     return <div>Loading...</div>;

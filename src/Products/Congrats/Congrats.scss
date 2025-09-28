@@ -1,0 +1,43 @@
+.congrats-container {
+  margin-top: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .congrats-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .tick {
+      width: 110px;
+      height: 110px;
+    }
+    .congrats-title {
+      font-size: 55px;
+      color: #10151f;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+    .congrats-para {
+      font-size: 18px;
+      font-weight: 400;
+      color: #3e424a;
+      margin-top: 10px;
+      margin-bottom: 90px;
+    }
+    .congrats-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 214px;
+      height: 41px;
+      padding: 10px 40px;
+      background-color: #ff4000;
+      border-radius: 15px;
+      color: white;
+      font-size: 17px;
+      font-weight: 400;
+      text-decoration: none;
+    }
+  }
+}

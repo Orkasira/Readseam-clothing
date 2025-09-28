@@ -6,14 +6,42 @@ import Header from "./LoginRegistration/Header/Header.jsx";
 import ProductPage from "./Products/ProductPage/ProductPage.jsx";
 import SingleProductPage from "./Products/SingleProductPage/SingleProductPage.jsx";
 import Checkout from "./Products/Checkout/Checkout.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Congrats from "./Products/Congrats/Congrats.jsx";
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(() => {
+    return JSON.parse(localStorage.getItem("user")) || null;
+  });
+
+  const [cartItems, setCartItems] = useState(() => {
+    const stored = localStorage.getItem("cart");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  const handleLogout = () => {
+    setLoggedInUser(null);
+    setCartItems([]);
+    localStorage.removeItem("user");
+    localStorage.removeItem("cart");
+  };
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(loggedInUser));
+  }, [loggedInUser]);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <>
-      <Header user={loggedInUser} onLogout={() => setLoggedInUser(null)} />
+      <Header
+        user={loggedInUser}
+        onLogout={handleLogout}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
       <Routes>
         <Route path="/" element={<Login onLogin={setLoggedInUser} />} />
         <Route
@@ -21,8 +49,22 @@ function App() {
           element={<Registration onRegister={setLoggedInUser} />}
         />
         <Route path="/ProductPage" element={<ProductPage />} />
-        <Route path="/ProductPage/:id" element={<SingleProductPage />} />
-        <Route path="/Checkout" element={<Checkout />}></Route>
+        <Route
+          path="/ProductPage/:id"
+          element={
+            <SingleProductPage
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
+          }
+        />
+        <Route
+          path="/Checkout"
+          element={
+            <Checkout cartItems={cartItems} setCartItems={setCartItems} />
+          }
+        ></Route>
+        <Route path="/Congrats" element={<Congrats />}></Route>
       </Routes>
     </>
   );
