@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 import eyeview from "../../assets/eyeview.png";
 import eyehide from "../../assets/eyehide.png";
 import { useNavigate } from "react-router-dom";
+import defaultphoto from "../../assets/defaultphoto.jpg";
 
-function Login() {
+function Login({ onLogin }) {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [show, setShow] = useState(false);
@@ -64,6 +65,13 @@ function Login() {
       );
 
       if (res.status === 200) {
+        const data = await res.json();
+        const loggedUser = {
+          username: data.username,
+          email: data.email,
+          photo: data.profile_photo || defaultphoto,
+        };
+        onLogin(loggedUser);
         navigate("/ProductPage");
       } else {
         alert("Login failed. Please check your Email or password.");

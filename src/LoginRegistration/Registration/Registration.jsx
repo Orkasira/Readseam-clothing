@@ -1,11 +1,12 @@
 import "./Registration.css";
 import photo from "../../assets/62bc5492a876268b6b9fc395f006a9259cafde47.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import react, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import eyeview from "../../assets/eyeview.png";
 import eyehide from "../../assets/eyehide.png";
+import defaultphoto from "../../assets/defaultphoto.jpg";
 
-function Registration() {
+function Registration({ onRegister }) {
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -18,6 +19,10 @@ function Registration() {
     password: "",
     password_confirmation: "",
   });
+
+  const [photoFile, setPhotoFile] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(defaultphoto);
+  const navigate = useNavigate();
 
   // handle input change
 
@@ -71,6 +76,9 @@ function Registration() {
       formData.append("email", form.email);
       formData.append("password", form.password);
       formData.append("password_confirmation", form.password_confirmation);
+      if (photoFile) {
+        formData.append("photo", photoFile);
+      }
       const res = await fetch(
         "https://api.redseam.redberryinternship.ge/api/register",
         {
@@ -97,6 +105,18 @@ function Registration() {
       }
       if (hasError) return;
 
+      if (!hasError) {
+        const newUser = {
+          username: form.username,
+          email: form.email,
+          profile_photo: photoPreview,
+        };
+
+        console.log("👉 Setting loggedInUser:", newUser);
+        onRegister(newUser);
+        navigate("/ProductPage");
+      }
+
       console.log("Response:", data);
     } catch (err) {
       console.error("Error:", err);
@@ -114,6 +134,21 @@ function Registration() {
     setShowConfirm((prev) => !prev);
   }
 
+  // handle file change
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPhotoFile(file);
+      setPhotoPreview(URL.createObjectURL(file));
+    }
+  };
+
+  // remove uploaded photo
+  const removePhoto = () => {
+    setPhotoFile(null);
+    setPhotoPreview(defaultphoto);
+  };
+
   return (
     <>
       <div className="registration-container">
@@ -125,12 +160,42 @@ function Registration() {
 
           <div className="form-inputs-container">
             <div className="input-container">
+              <div className="photo-upload-container">
+                <input
+                  type="file"
+                  id="file-upload"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                  className="file-input"
+                />
+                {photoPreview && (
+                  <div className="photo-preview">
+                    <img
+                      src={photoPreview}
+                      alt="Preview"
+                      className="preview-img"
+                    />
+                    <label htmlFor="file-upload" className="upload-label">
+                      Upload Photo
+                    </label>
+                    <button
+                      type="button"
+                      onClick={removePhoto}
+                      className="remove-btn"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
+              </div>
               <input
                 type="text"
                 name="username"
                 placeholder="username *"
                 onChange={handleChange}
                 value={form.username}
+                className="inputs"
               />
               {usernameError && (
                 <div className="validation-errors">{usernameError}</div>
@@ -141,6 +206,7 @@ function Registration() {
                 placeholder="Email *"
                 onChange={handleChange}
                 value={form.email}
+                className="inputs"
               />
               {emailError && (
                 <div className="validation-errors">{emailError}</div>
@@ -152,6 +218,7 @@ function Registration() {
                   placeholder="Password *"
                   onChange={handleChange}
                   value={form.password}
+                  className="inputs"
                 />
                 <span onClick={togglePassword}>
                   {showPassword ? (
@@ -171,6 +238,7 @@ function Registration() {
                   placeholder="Confirm Password *"
                   onChange={handleChange}
                   value={form.password_confirmation}
+                  className="inputs"
                 />
                 <span onClick={toggleConfirm}>
                   {showConfirm ? (

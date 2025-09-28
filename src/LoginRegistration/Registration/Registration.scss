@@ -40,7 +40,43 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
-        input {
+        .photo-upload-container {
+          margin: 20px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .upload-label {
+            width: 100px;
+            color: #3e424a;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0 15px;
+          }
+
+          .photo-preview {
+            display: flex;
+            align-items: center;
+            .preview-img {
+              width: 100px;
+              height: 100px;
+              object-fit: cover;
+              border-radius: 50%;
+              margin-right: 10px;
+            }
+
+            button {
+              background-color: white;
+              color: #3e424a;
+              border: none;
+              padding: 6px 10px;
+              cursor: pointer;
+              font-size: 14px;
+            }
+          }
+        }
+        .inputs {
           width: 560px;
           padding: 10.5px 12px;
           border: solid 1px #e1dfe1;
