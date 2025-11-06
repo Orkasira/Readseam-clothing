@@ -237,3 +237,168 @@
     }
   }
 }
+
+@media (max-width: 1400px) {
+  .product-page-container {
+    margin: 0 60px;
+
+    .filter {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      .title {
+        font-size: 36px;
+      }
+
+      .filter-options {
+        .price-filter {
+          .price-filter-popup {
+            left: -220%;
+          }
+        }
+      }
+    }
+
+    .product-list {
+      .product-card {
+        width: 320px;
+        height: 520px;
+
+        .product-image {
+          width: 318px;
+          height: 460px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-page-container {
+    margin: 0 40px;
+
+    .filter {
+      .filter-options {
+        gap: 20px;
+      }
+    }
+
+    .product-list {
+      justify-content: center;
+
+      .product-card {
+        width: 280px;
+        height: 480px;
+
+        .product-image {
+          width: 278px;
+          height: 420px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .product-page-container {
+    margin: 0 20px;
+
+    .filter {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .title {
+        font-size: 30px;
+      }
+
+      .filter-options {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    .product-list {
+      justify-content: center;
+      gap: 16px;
+
+      .product-card {
+        width: 250px;
+        height: 420px;
+
+        .product-image {
+          width: 248px;
+          height: 360px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .product-page-container {
+    margin: 0 50px;
+
+    .filter {
+      .title {
+        font-size: 26px;
+      }
+    }
+
+    .product-list {
+      .product-card {
+        width: 220px;
+        height: 380px;
+
+        .product-image {
+          width: 218px;
+          height: 320px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .product-page-container {
+    margin: 0 6px;
+
+    .filter {
+      .title {
+        font-size: 22px;
+      }
+
+      .filter-options {
+        font-size: 12px;
+        .price-filter {
+          .price-filter-popup {
+            left: -300%;
+          }
+        }
+      }
+
+      .product-list {
+        justify-content: center;
+
+        .product-card {
+          width: 180px;
+          height: 330px;
+
+          .product-image {
+            width: 178px;
+            height: 270px;
+          }
+
+          .product-name {
+            font-size: 14px;
+          }
+
+          .product-price {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
