@@ -197,3 +197,86 @@
     }
   }
 }
+
+@media (max-width: 1400px) {
+  .checkout-container {
+    margin: 72px 30px 0 30px;
+
+    .checkout-content {
+      flex-direction: column;
+      gap: 20px;
+
+      .checkout-form,
+      .checkout-items {
+        width: 80%;
+        min-width: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .checkout-container {
+    margin: 72px 20px 0 20px;
+
+    .checkout-form {
+      padding: 40px 20px;
+    }
+
+    .checkout-items {
+      max-height: 500px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .checkout-container {
+    .checkout-form {
+      padding: 30px 15px;
+
+      .form-container {
+        .email-form {
+          max-width: 265px;
+        }
+      }
+
+      .form-names {
+        flex-direction: column;
+        gap: 15px;
+
+        input {
+          width: 100%;
+        }
+      }
+
+      .form-address {
+        flex-direction: column;
+        gap: 15px;
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    .checkout-items {
+      max-height: 400px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .checkout-container {
+    .checkout-title {
+      font-size: 36px;
+    }
+
+    .checkout-form {
+      padding: 20px 10px;
+    }
+
+    .checkout-items {
+      max-height: 350px;
+    }
+  }
+}
