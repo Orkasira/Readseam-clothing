@@ -345,3 +345,263 @@
     }
   }
 }
+
+@media (max-width: 1550px) {
+  .product-details-container {
+    margin: 0 120px;
+
+    .product-detail-wrapper {
+      .main-photo {
+        img {
+          width: 650px;
+          height: 850px;
+        }
+      }
+
+      .product-detail-content {
+        width: 650px;
+        margin-left: 100px;
+      }
+
+      .all-products-photos {
+        width: 110px;
+        .single-photo {
+          width: 105px;
+        }
+      }
+    }
+
+    .sidebar {
+      width: 420px;
+      padding: 35px;
+    }
+
+    .cart-item {
+      width: 420px;
+      .cart-item-info {
+        width: 310px;
+      }
+    }
+
+    .checkout-btn {
+      margin-top: 90px;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .product-details-container {
+    margin: 0 60px;
+
+    .product-detail-wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .all-products-photos {
+        width: 100px;
+        .single-photo {
+          width: 95px;
+          height: auto;
+        }
+      }
+
+      .main-photo {
+        img {
+          width: 600px;
+          height: 800px;
+        }
+      }
+
+      .product-detail-content {
+        width: 600px;
+        margin-left: 50px;
+      }
+    }
+
+    .sidebar {
+      width: 400px;
+      padding: 30px;
+    }
+
+    .cart-item {
+      width: 400px;
+      .cart-item-info {
+        width: 300px;
+      }
+    }
+
+    .checkout-btn {
+      margin-top: 80px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-details-container {
+    margin: 0 40px;
+
+    .product-detail-wrapper {
+      flex-direction: column;
+      align-items: center;
+
+      .main-photo {
+        img {
+          width: 500px;
+          height: 700px;
+        }
+      }
+
+      .product-detail-content {
+        width: 500px;
+        margin-left: 0;
+      }
+
+      .all-products-photos {
+        width: 80px;
+        .single-photo {
+          width: 75px;
+        }
+      }
+    }
+
+    .sidebar {
+      width: 350px;
+      padding: 20px;
+    }
+
+    .cart-item {
+      width: 350px;
+      .cart-item-info {
+        width: 260px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .product-details-container {
+    margin: 0 30px;
+
+    .product-detail-wrapper {
+      .main-photo {
+        img {
+          width: 400px;
+          height: 600px;
+        }
+      }
+
+      .product-detail-content {
+        width: 400px;
+      }
+
+      .all-products-photos {
+        width: 70px;
+        .single-photo {
+          width: 65px;
+        }
+      }
+    }
+
+    .sidebar {
+      width: 300px;
+      padding: 15px;
+    }
+
+    .cart-item {
+      width: 300px;
+      .cart-item-info {
+        width: 220px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .product-details-container {
+    margin: 0 15px;
+
+    .product-detail-wrapper {
+      flex-direction: column;
+      align-items: center;
+
+      .main-photo {
+        img {
+          width: 300px;
+          height: 450px;
+        }
+      }
+
+      .product-detail-content {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .all-products-photos {
+        width: 60px;
+        .single-photo {
+          width: 55px;
+        }
+      }
+    }
+
+    .sidebar {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .cart-item {
+      width: 100%;
+      .cart-item-info {
+        width: auto;
+      }
+    }
+
+    .checkout-btn {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .product-details-container {
+    margin: 0 10px;
+
+    .product-detail-wrapper {
+      .main-photo {
+        img {
+          width: 250px;
+          height: 375px;
+        }
+      }
+
+      .product-detail-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 10px;
+      }
+
+      .all-products-photos {
+        width: 50px;
+        .single-photo {
+          width: 45px;
+        }
+      }
+    }
+
+    .sidebar {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .cart-item {
+      width: 100%;
+      .cart-item-info {
+        width: 100%;
+      }
+    }
+
+    .checkout-btn {
+      margin-top: 30px;
+    }
+  }
+}
