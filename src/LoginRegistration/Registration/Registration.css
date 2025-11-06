@@ -122,4 +122,98 @@
   color: #ff4000;
   font-weight: 500;
   text-decoration: none;
+}
+
+@media (max-width: 1400px) {
+  .registration-container .form-container .form-inputs-contianer .input-container .inputs {
+    width: 100px;
+  }
+  .registration-container .form-container .form-inputs-contianer .input-container .eye {
+    left: 88%;
+  }
+}
+@media (max-width: 1400px) {
+  .registration-container .photo-container .photo {
+    width: 1000px;
+    height: 900px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: left;
+       object-position: left;
+  }
+  .registration-container .form-container .registration-title {
+    margin-left: 110px;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .inputs {
+    width: 350px;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .eye {
+    left: 88%;
+  }
+  .registration-container .form-container .registration-btn {
+    padding: 10px 170px;
+  }
+}
+@media (max-width: 1200px) {
+  .registration-container .photo-container {
+    margin-right: -280px;
+  }
+  .registration-container .photo-container .photo {
+    width: 350px;
+    height: 900px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 15%;
+       object-position: 15%;
+  }
+  .registration-container .form-container {
+    margin-left: -100px;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .eye {
+    left: 72%;
+  }
+}
+@media (max-width: 1000px) {
+  .registration-container .form-container .form-inputs-container .input-container .eye {
+    left: 86%;
+  }
+}
+@media (max-width: 900px) {
+  .registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .registration-container .photo-container {
+    display: none;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .inputs {
+    width: 300px;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .eye {
+    left: 70%;
+  }
+  .registration-container .form-container .registration-btn {
+    padding: 10px 140px;
+  }
+}
+@media (max-width: 700px) {
+  .registration-container {
+    margin-left: -100px;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .eye {
+    left: 70%;
+  }
+}
+@media (max-width: 540px) {
+  .registration-container {
+    margin-left: -150px;
+  }
+  .registration-container .form-container .registration-title {
+    margin-left: 130px;
+  }
+  .registration-container .form-container .form-inputs-container .input-container .eye {
+    top: 60.5%;
+    left: 76%;
+  }
 }/*# sourceMappingURL=Registration.css.map */

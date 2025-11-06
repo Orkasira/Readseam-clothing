@@ -124,3 +124,151 @@
     }
   }
 }
+
+@media (max-width: 1400px) {
+  .registration-container {
+    .form-container {
+      .form-inputs-contianer {
+        .input-container {
+          .inputs {
+            width: 100px;
+          }
+          .eye {
+            left: 88%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .registration-container {
+    .photo-container {
+      .photo {
+        width: 1000px;
+        height: 900px;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+    .form-container {
+      .registration-title {
+        margin-left: 110px;
+      }
+      .form-inputs-container {
+        .input-container {
+          .inputs {
+            width: 350px;
+          }
+          .eye {
+            left: 88%;
+          }
+        }
+      }
+      .registration-btn {
+        padding: 10px 170px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .registration-container {
+    .photo-container {
+      margin-right: -280px;
+      .photo {
+        width: 350px;
+        height: 900px;
+        object-fit: cover;
+        object-position: 15%;
+      }
+    }
+    .form-container {
+      margin-left: -100px;
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            left: 72%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .registration-container {
+    .form-container {
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            left: 86%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .photo-container {
+      display: none;
+    }
+
+    .form-container {
+      .form-inputs-container {
+        .input-container {
+          .inputs {
+            width: 300px;
+          }
+          .eye {
+            left: 70%;
+          }
+        }
+      }
+      .registration-btn {
+        padding: 10px 140px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .registration-container {
+    margin-left: -100px;
+    .form-container {
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            left: 70%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .registration-container {
+    margin-left: -150px;
+    .form-container {
+      .registration-title {
+        margin-left: 130px;
+      }
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            top: 60.5%;
+            left: 76%;
+          }
+        }
+      }
+    }
+  }
+}
