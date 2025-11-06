@@ -41,3 +41,118 @@
     }
   }
 }
+
+@media (max-width: 1400px) {
+  .congrats-container {
+    .congrats-content {
+      .tick {
+        width: 90px;
+        height: 90px;
+      }
+      .congrats-title {
+        font-size: 48px;
+      }
+      .congrats-para {
+        font-size: 16px;
+      }
+      .congrats-btn {
+        width: 200px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .congrats-container {
+    margin-top: 150px;
+    .congrats-content {
+      .tick {
+        width: 80px;
+        height: 80px;
+      }
+      .congrats-title {
+        font-size: 42px;
+      }
+      .congrats-para {
+        font-size: 15px;
+      }
+      .congrats-btn {
+        width: 180px;
+        height: 38px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .congrats-container {
+    margin-top: 120px;
+    .congrats-content {
+      .tick {
+        width: 70px;
+        height: 70px;
+      }
+      .congrats-title {
+        font-size: 36px;
+      }
+      .congrats-para {
+        font-size: 14px;
+      }
+      .congrats-btn {
+        width: 160px;
+        height: 36px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .congrats-container {
+    margin-top: 100px;
+    .congrats-content {
+      .tick {
+        width: 60px;
+        height: 60px;
+      }
+      .congrats-title {
+        font-size: 30px;
+      }
+      .congrats-para {
+        font-size: 13px;
+      }
+      .congrats-btn {
+        width: 140px;
+        height: 34px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .congrats-container {
+    margin-top: 80px;
+    .congrats-content {
+      .tick {
+        width: 50px;
+        height: 50px;
+      }
+      .congrats-title {
+        font-size: 26px;
+      }
+      .congrats-para {
+        font-size: 12px;
+        margin-bottom: 60px;
+      }
+      .congrats-btn {
+        width: 130px;
+        height: 32px;
+        font-size: 12px;
+      }
+    }
+  }
+}
