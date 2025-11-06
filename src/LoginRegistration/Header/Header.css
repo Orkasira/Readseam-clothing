@@ -240,4 +240,15 @@ header .empty-cart .shop-btn .shop-btn-link {
 }
 header .empty-cart .shop-btn:hover {
   background: #e63500;
+}
+
+@media (max-width: 900px) {
+  header {
+    margin: 28px 40px;
+  }
+}
+@media (max-width: 540px) {
+  header .logo {
+    width: 180px;
+  }
 }/*# sourceMappingURL=Header.css.map */

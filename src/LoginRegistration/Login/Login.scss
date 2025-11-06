@@ -87,3 +87,132 @@
     }
   }
 }
+
+@media (max-width: 1400px) {
+  .login-container {
+    .photo-container {
+      .photo {
+        width: 1000px;
+        height: 900px;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+    .form-container {
+      .login-title {
+        margin-left: 110px;
+      }
+      .form-inputs-container {
+        .input-container {
+          input {
+            width: 350px;
+          }
+          .eye {
+            left: 88%;
+          }
+        }
+      }
+      .login-btn {
+        padding: 10px 170px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .login-container {
+    .photo-container {
+      margin-right: -280px;
+      .photo {
+        width: 350px;
+        height: 900px;
+        object-fit: cover;
+        object-position: 15%;
+      }
+    }
+    .form-container {
+      margin-left: -100px;
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            left: 72%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .login-container {
+    .form-container {
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            left: 86%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .photo-container {
+      display: none;
+    }
+    .form-container {
+      .form-inputs-container {
+        .input-container {
+          input {
+            width: 300px;
+          }
+          .eye {
+            left: 70%;
+          }
+        }
+        .login-btn {
+          padding: 10px 140px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .login-container {
+    margin-left: -100px;
+    .form-container {
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            left: 70%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .login-container {
+    margin-left: -150px;
+    .form-container {
+      .login-title {
+        margin-left: 130px;
+      }
+      .form-inputs-container {
+        .input-container {
+          .eye {
+            top: 60.5%;
+            left: 76%;
+          }
+        }
+      }
+    }
+  }
+}

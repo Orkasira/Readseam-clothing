@@ -268,3 +268,17 @@ header {
     }
   }
 }
+
+@media (max-width: 900px) {
+  header {
+    margin: 28px 40px;
+  }
+}
+
+@media (max-width: 540px) {
+  header {
+    .logo {
+      width: 180px;
+    }
+  }
+}
