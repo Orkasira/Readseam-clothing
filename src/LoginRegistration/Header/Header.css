@@ -11,6 +11,22 @@ header .logo {
   text-decoration: none;
   color: #10151f;
 }
+header .login .flags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-right: 15px;
+}
+header .login .flags .flag-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+header .login .flags .flag-icon:hover {
+  transform: scale(1.1);
+}
 header .login .user-container {
   position: relative;
   display: flex;

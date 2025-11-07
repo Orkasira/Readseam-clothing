@@ -17,6 +17,24 @@ header {
   }
 
   .login {
+    .flags {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-right: 15px;
+      .flag-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .flag-icon:hover {
+        transform: scale(1.1);
+      }
+    }
+
     .user-container {
       position: relative;
       display: flex;
