@@ -1,8 +1,8 @@
 @mixin errors {
   color: red;
   font-size: 0.9em;
-  margin-top: -20px;
-  margin-bottom: -20px;
+  margin-top: -15px;
+  margin-bottom: -15px;
 }
 
 .login-container {
@@ -39,18 +39,19 @@
       .input-container {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 21px;
         input {
           width: 560px;
           padding: 10.5px 12px;
           border: solid 1px #e1dfe1;
           border-radius: 8px;
+          margin-top: -7px;
         }
         .eye {
           width: 20px;
           height: 20px;
           position: absolute;
-          top: 55.5%;
+          top: 56.5%;
           left: 79%;
           cursor: pointer;
         }
@@ -59,7 +60,7 @@
         }
         .pass-validation-errors {
           @include errors;
-          margin-top: -45px;
+          margin-top: -40px;
         }
       }
     }
