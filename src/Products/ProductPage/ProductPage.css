@@ -126,13 +126,17 @@
   border-bottom: 1px solid #eee;
   margin-bottom: 6px;
 }
-.product-page-container .active-filters {
+.product-page-container .active-container {
+  display: flex;
+  gap: 20px;
+}
+.product-page-container .active-container .active-content {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
 }
-.product-page-container .active-filters .filter-tag {
+.product-page-container .active-container .active-content .active-tag {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -142,7 +146,7 @@
   font-size: 14px;
   color: #10151f;
 }
-.product-page-container .active-filters .filter-tag .close-btn {
+.product-page-container .active-container .active-content .active-tag .close-btn {
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;

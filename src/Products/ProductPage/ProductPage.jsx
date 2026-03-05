@@ -14,6 +14,7 @@ function ProductPage() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [activeFilter, setActiveFilter] = useState(null);
+  const [activeSort, setActiveSort] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;
@@ -33,7 +34,7 @@ function ProductPage() {
         do {
           const res = await fetch(
             `https://api.redseam.redberryinternship.ge/api/products?page=${page}`,
-            { headers: { accept: "application/json" } }
+            { headers: { accept: "application/json" } },
           );
           const result = await res.json();
 
@@ -56,15 +57,17 @@ function ProductPage() {
     let sortedProducts = [...originalProducts];
     if (criteria === "newest") {
       sortedProducts.sort(
-        (a, b) => new Date(b.release_date) - new Date(a.release_date)
+        (a, b) => new Date(b.release_date) - new Date(a.release_date),
       );
-    } else if (criteria === "priceLowToHigh") {
+    } else if (criteria === "PriceLowToHigh") {
       sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (criteria === "priceHighToLow") {
+    } else if (criteria === "PriceHighToLow") {
       sortedProducts.sort((a, b) => b.price - a.price);
     }
     setProducts(sortedProducts);
     setCurrentPage(1);
+    setActiveSort(criteria);
+    setOpen(false);
   };
 
   // Price filter
@@ -180,13 +183,13 @@ function ProductPage() {
                 </p>
                 <p
                   className="sort-para"
-                  onClick={() => handleSort("priceLowToHigh")}
+                  onClick={() => handleSort("PriceLowToHigh")}
                 >
                   Price, low to high
                 </p>
                 <p
                   className="sort-para"
-                  onClick={() => handleSort("priceHighToLow")}
+                  onClick={() => handleSort("PriceHighToLow")}
                 >
                   Price, high to low
                 </p>
@@ -196,25 +199,45 @@ function ProductPage() {
         </div>
       </div>
 
-      {activeFilter && (
-        <div className="active-filters">
-          <div className="filter-tag">
-            Price: {activeFilter.from}–{activeFilter.to || "∞"}
-            <span
-              className="close-btn"
-              onClick={() => {
-                setActiveFilter(null);
-                setFrom("");
-                setTo("");
-                setProducts(originalProducts);
-                setCurrentPage(1);
-              }}
-            >
-              ×
-            </span>
+      <div className="active-container">
+        {activeFilter && (
+          <div className="active-content">
+            <div className="active-tag">
+              Price: {activeFilter.from}–{activeFilter.to || "∞"}
+              <span
+                className="close-btn"
+                onClick={() => {
+                  setActiveFilter(null);
+                  setFrom("");
+                  setTo("");
+                  setProducts(originalProducts);
+                  setCurrentPage(1);
+                }}
+              >
+                ×
+              </span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+
+        {activeSort && (
+          <div className="active-content">
+            <div className="active-tag">
+              Sort: {activeSort.replace(/([A-Z])/g, " $1").trim()}
+              <span
+                className="close-btn"
+                onClick={() => {
+                  setActiveSort(null);
+                  setProducts(originalProducts);
+                  setCurrentPage(1);
+                }}
+              >
+                ×
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
 
       <div className="product-list">
         {currentProducts.map((product) => (
@@ -256,7 +279,7 @@ function ProductPage() {
             >
               {p}
             </button>
-          )
+          ),
         )}
 
         <img
