@@ -61,7 +61,7 @@ function Login({ onLogin }) {
             accept: "application/json",
           },
           body: formData,
-        }
+        },
       );
 
       if (res.status === 200) {
@@ -107,27 +107,32 @@ function Login({ onLogin }) {
                 placeholder="Email or username *"
                 onChange={handleChange}
                 value={form.email}
+                className="emailInput"
               />
               {emailError && (
                 <div className="validation-errors">{emailError}</div>
               )}
-              <input
-                type={show ? "text" : "password"}
-                name="password"
-                placeholder="Password *"
-                onChange={handleChange}
-                value={form.password}
-              />
-              <span onClick={togglePassword}>
-                {show ? (
-                  <img src={eyeview} alt="eye" className="eye" />
-                ) : (
-                  <img src={eyehide} alt="eye" className="eye" />
+              <div className="passwordInputToggle">
+                <input
+                  type={show ? "text" : "password"}
+                  name="password"
+                  placeholder="Password *"
+                  onChange={handleChange}
+                  value={form.password}
+                  className="passInput"
+                />
+                <span onClick={togglePassword}>
+                  {show ? (
+                    <img src={eyeview} alt="eye" className="eye" />
+                  ) : (
+                    <img src={eyehide} alt="eye" className="eye" />
+                  )}
+                </span>
+
+                {passwordError && (
+                  <div className="pass-validation-errors">{passwordError}</div>
                 )}
-              </span>
-              {passwordError && (
-                <div className="pass-validation-errors">{passwordError}</div>
-              )}
+              </div>
             </div>
 
             <button className="login-btn">Log in</button>

@@ -6,8 +6,6 @@ import arrow from "../../assets/arrow.png";
 import react, { useState } from "react";
 import shoppingcart from "../../assets/shoppingcart.png";
 import errorcart from "../../assets/errorcart.png";
-import geo from "../../assets/geo.png";
-import usa from "../../assets/usa.png";
 
 function Header({ user, onLogout, cartItems, setCartItems }) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -15,7 +13,7 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
   const navigate = useNavigate();
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
-    0
+    0,
   );
   const deliveryPrice = 5;
   const total = subtotal + deliveryPrice;
@@ -25,8 +23,8 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
       items.map((item) =>
         item.id === id && item.size === size && item.color === color
           ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
@@ -34,8 +32,8 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
     setCartItems((items) =>
       items.filter(
         (item) =>
-          !(item.id === id && item.size === size && item.color === color)
-      )
+          !(item.id === id && item.size === size && item.color === color),
+      ),
     );
   };
 
@@ -50,7 +48,7 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
   function CartSidebar({ cartItems, setCartItems }) {
     const subtotal = cartItems.reduce(
       (acc, item) => acc + item.price * item.quantity,
-      0
+      0,
     );
     const total = subtotal + deliveryPrice;
 
@@ -59,8 +57,8 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
         items.map((item) =>
           item.id === id && item.size === size && item.color === color
             ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-            : item
-        )
+            : item,
+        ),
       );
     };
 
@@ -68,8 +66,8 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
       setCartItems((items) =>
         items.filter(
           (item) =>
-            !(item.id === id && item.size === size && item.color === color)
-        )
+            !(item.id === id && item.size === size && item.color === color),
+        ),
       );
     };
 
@@ -93,11 +91,6 @@ function Header({ user, onLogout, cartItems, setCartItems }) {
       )}
 
       <div className="login">
-        <div className="flags">
-          <img src={geo} alt="Georgia flag" className="flag-icon" />
-          <img src={usa} alt="USA flag" className="flag-icon" />
-        </div>
-
         {user ? (
           <div className="user-container">
             <img
