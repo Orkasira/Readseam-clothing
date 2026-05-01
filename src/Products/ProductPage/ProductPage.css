@@ -161,7 +161,7 @@
   justify-content: start;
 }
 .product-page-container .product-list .product-card {
-  width: 410.5px;
+  width: 390.5px;
   height: 614px;
   padding-bottom: 20px;
   cursor: pointer;
@@ -169,7 +169,7 @@
 }
 .product-page-container .product-list .product-card .product-image {
   border: solid 1px #e1dfe1;
-  width: 408.5px;
+  width: 390.5px;
   height: 549px;
   -o-object-fit: cover;
      object-fit: cover;
